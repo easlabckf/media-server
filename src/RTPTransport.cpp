@@ -542,6 +542,7 @@ int RTPTransport::Init()
 		//Bind the rtcp socket
 		if(bind(simSocket,(struct sockaddr *)&recAddr,sizeof(struct sockaddr_in))!=0)
 		{
+			Log("RTPTransport::Init() Socket binding failed. Errno [%d]\n", errno);
 			//Use random
 			simPort = 0;
 			//Try again
